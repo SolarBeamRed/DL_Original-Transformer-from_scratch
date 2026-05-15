@@ -1,0 +1,10 @@
+#Jupyter
+.ipynb_checkpoints/
+
+#Python
+__pycache__/
+*.pyc
+*.pyo
+
+#Pycharm(might use in future)
+.idea/
