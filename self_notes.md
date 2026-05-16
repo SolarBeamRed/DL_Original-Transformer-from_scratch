@@ -134,3 +134,13 @@ Causal mask is a square matrix of shape: [1, seq_length, seq_length] with upper 
 Then integrated with padding mask using AND operation
 
 Decoder outputs are then passed to a final linear layer with dimensions: ```[d_model, tgt_vocab_size]``` to get logits for the next token that is most likely
+
+___
+
+### Testing inference without testing
+- Arbitrarily chose src_vocab_size and tgt_vocab_size. I went with 1500. 
+- Create a Transformer object named model, optionally send it to GPU
+- Create toy src and tgt. I chose batch_size to be 16, src_seq_length to be 12 and tgt_seq_length to be 14
+- Mock padding by arbitrarily setting some examples of src and tgt to contain padding tokens(0) in the end
+- Pass src and tgt to Transformer model
+- Verify if output shapes is same as expected. The output size should be `[batch_size, tgt_seq_length, tgt_vocab_size]`, which is suppsed to be [16, 14, 1500]
